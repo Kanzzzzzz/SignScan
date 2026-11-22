@@ -1,0 +1,123 @@
+@import 'tailwindcss';
+
+/* Design tokens. All text/background pairs meet WCAG AA in both themes. */
+:root {
+  --bg: #f4f3ee;
+  --surface: #ffffff;
+  --surface-2: #ebe9e2;
+  --ink: #15171b;
+  --muted: #555b66;
+  --line: #d9d6cc;
+  --accent: #0b6e69;
+  --accent-ink: #ffffff;
+  --accent-soft: #d5ebe8;
+  --ok: #17703a;
+  --ok-soft: #d9f0e0;
+  --warn: #8a5300;
+  --warn-soft: #fbecd2;
+  --danger: #b42318;
+  --danger-soft: #fbe2df;
+  --video-bg: #1c1f24;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0f12;
+    --surface: #16191e;
+    --surface-2: #1f2329;
+    --ink: #f1f0eb;
+    --muted: #a4abb6;
+    --line: #2c3139;
+    --accent: #43c6b9;
+    --accent-ink: #06201e;
+    --accent-soft: #11312e;
+    --ok: #5ad685;
+    --ok-soft: #12301d;
+    --warn: #f3bb55;
+    --warn-soft: #33260f;
+    --danger: #ff7b6e;
+    --danger-soft: #3a1714;
+    --video-bg: #000000;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-video: var(--video-bg);
+  --font-sans:
+    'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-display:
+    'Segoe UI Variable Display', ui-rounded, 'SF Pro Rounded', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Consolas, monospace;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Strong, visible focus for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-line bg-surface px-4 text-sm font-semibold text-ink transition-colors select-none hover:bg-surface-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply border-accent bg-accent text-accent-ink hover:bg-accent hover:brightness-110;
+  }
+  .btn-danger {
+    @apply border-danger text-danger hover:bg-danger-soft;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+  .field {
+    @apply min-h-11 w-full rounded-lg border border-line bg-surface px-3 text-ink;
+  }
+  .label {
+    @apply mb-1 block text-sm font-semibold text-ink;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.08em] text-muted uppercase;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

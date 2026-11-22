@@ -1,0 +1,20 @@
+# Default training config. Relative paths are relative to ml/.
+model: cnn            # cnn (main) | mlp (baseline)
+data: ../data/processed/dataset.parquet
+splits: ../data/processed/splits.json
+epochs: 80
+batch_size: 256
+lr: 0.002
+weight_decay: 0.0001
+label_smoothing: 0.05
+dropout: 0.3
+patience: 12
+min_epochs: 30        # never early-stop before this
+seed: 42
+augment:
+  rotate_deg: 15.0      # keep small: some letters differ by orientation
+  scale: 0.10
+  jitter_std: 0.02
+  mirror_p: 0.1
+  landmark_dropout_p: 0.05
+runs_dir: runs

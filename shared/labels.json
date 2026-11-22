@@ -1,0 +1,9 @@
+{
+  "alphabet": "FSL",
+  "feature_version": 1,
+  "note": "Single source of truth for classifier classes. Default: 24 static letters (A-Y without J; Z excluded). See docs/decisions.md G1-G3.",
+  "labels": [
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M",
+    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y"
+  ]
+}

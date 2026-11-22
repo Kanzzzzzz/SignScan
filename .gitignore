@@ -1,0 +1,29 @@
+# Data and recordings: never commit (Data Privacy Act, RA 10173)
+data/*
+!data/README.md
+*.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+ml/runs/
+
+# Node
+node_modules/
+app/dist/
+app/public/mediapipe/
+app/test-results/
+app/playwright-report/
+
+# Large model downloads (fetched by app/scripts/setup-assets.mjs)
+app/public/models/hand_landmarker.task
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
